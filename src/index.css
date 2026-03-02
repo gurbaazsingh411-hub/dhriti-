@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 7%;
+    --foreground: 180 10% 90%;
+
+    --card: 230 20% 10%;
+    --card-foreground: 180 10% 90%;
+
+    --popover: 230 20% 12%;
+    --popover-foreground: 180 10% 90%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 230 25% 7%;
+
+    --secondary: 280 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 230 15% 15%;
+    --muted-foreground: 230 10% 55%;
+
+    --accent: 330 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 15% 20%;
+    --input: 230 15% 20%;
+    --ring: 142 70% 45%;
+
+    --radius: 0.5rem;
+
+    --chaos: 330 85% 60%;
+    --terminal: 142 70% 45%;
+    --gold: 45 90% 55%;
+    --gold-foreground: 230 25% 7%;
+    --electric: 280 80% 60%;
+
+    --sidebar-background: 230 25% 7%;
+    --sidebar-foreground: 180 10% 90%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 230 25% 7%;
+    --sidebar-accent: 230 15% 15%;
+    --sidebar-accent-foreground: 180 10% 90%;
+    --sidebar-border: 230 15% 20%;
+    --sidebar-ring: 142 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(142 70% 45% / 0.5), 0 0 40px hsl(142 70% 45% / 0.2);
+  }
+
+  .text-glow-chaos {
+    text-shadow: 0 0 10px hsl(330 85% 60% / 0.5), 0 0 40px hsl(330 85% 60% / 0.2);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 10px hsl(45 90% 55% / 0.5), 0 0 40px hsl(45 90% 55% / 0.2);
+  }
+
+  .text-glow-electric {
+    text-shadow: 0 0 10px hsl(280 80% 60% / 0.5), 0 0 40px hsl(280 80% 60% / 0.2);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 10px hsl(142 70% 45% / 0.3), inset 0 0 10px hsl(142 70% 45% / 0.1);
+  }
+
+  .border-glow-chaos {
+    box-shadow: 0 0 10px hsl(330 85% 60% / 0.3), inset 0 0 10px hsl(330 85% 60% / 0.1);
+  }
+
+  .scanline {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(142 70% 45% / 0.03) 2px,
+      hsl(142 70% 45% / 0.03) 4px
+    );
+  }
+
+  .game-card {
+    @apply bg-card border border-border rounded-lg p-6;
+    box-shadow: 0 0 20px hsl(230 25% 7% / 0.5), 0 0 1px hsl(142 70% 45% / 0.3);
+  }
+
+  .stat-bar {
+    @apply h-3 rounded-full overflow-hidden bg-muted;
+  }
+
+  .stat-bar-fill {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+  }
+
+  .neon-button {
+    @apply px-6 py-3 font-mono font-bold uppercase tracking-wider border-2 rounded-md transition-all duration-300;
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+  }
+
+  .neon-button:hover {
+    background: hsl(var(--primary) / 0.2);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4), inset 0 0 20px hsl(var(--primary) / 0.1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(230 25% 7%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(142 70% 45% / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(142 70% 45% / 0.5);
+}
